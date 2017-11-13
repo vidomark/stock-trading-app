@@ -7,6 +7,15 @@ import java.io.IOException;
  **/
 public class Trader {
 
+	private static Trader instance;
+
+	public static Trader getInstance() {
+	    if (instance == null) {
+	        instance = new Trader();
+        }
+        return instance;
+    }
+
 	private IexStockService stockService;
 
 	public Trader() {
@@ -22,10 +31,10 @@ public class Trader {
 		if (price <= bid) {
 			result = true;
 			stockService.buy(symbol);
-			Logger.getInstance().log("Purchased at $" + bid + ", since its higher that the current price ($" + price + ")");
+			Logger.getInstance().log("Purchased " + symbol + " stock at $" + bid + ", since its higher that the current price ($" + price + ")");
 		}
 		else {
-            Logger.getInstance().log("Bid was " + bid + " but the stock price is " + price + ", no purchase was made.");
+            Logger.getInstance().log("Bid for " + symbol + " was $" + bid + " but the stock price is $" + price + ", no purchase was made.");
 			result = false;
 		}
 		return result;
