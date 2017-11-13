@@ -8,31 +8,34 @@ import java.util.Scanner;
  **/
 public class TradingApp {
 	public static void main(String[] args) {
-		Trader trader = new Trader();
-	
+	    TradingApp app = new TradingApp();
+	    app.start();
+	}
+
+	public void start() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Enter a stock symbol (for example aapl):");
 		String symbol = keyboard.nextLine();
 		System.out.println("Enter the maximum price you are willing to pay: ");
-        double price;
+		double price;
 		try {
-            price = keyboard.nextDouble();
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Enter a number");
-            return;
-        }
-		
+			price = keyboard.nextDouble();
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input. Enter a number");
+			return;
+		}
+
 		boolean purchased = false;
 		try {
-            purchased = trader.buy(symbol, price);
+			purchased = Trader.getInstance().buy(symbol, price);
 		} catch (Exception e) {
-		    Logger.getInstance().log("There was an error while attempting to buy the stock: " + e.getMessage());
+			Logger.getInstance().log("There was an error while attempting to buy the stock: " + e.getMessage());
 		}
 		if (purchased) {
-            Logger.getInstance().log("Purchased stock!");
+			Logger.getInstance().log("Purchased stock!");
 		}
 		else {
-            Logger.getInstance().log("Couldn't buy the stock at that price.");
+			Logger.getInstance().log("Couldn't buy the stock at that price.");
 		}
 	}
 }
