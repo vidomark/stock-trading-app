@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO
-class IexStockServiceTest {
+class StockAPIServiceTest {
 
     @Test // everything works
     void testGetPriceNormalValues() {

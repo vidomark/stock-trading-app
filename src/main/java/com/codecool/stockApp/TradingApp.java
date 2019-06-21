@@ -25,17 +25,16 @@ public class TradingApp {
 			return;
 		}
 
-		boolean purchased = false;
 		try {
-			purchased = Trader.getInstance().buy(symbol, price);
+			boolean purchased = Trader.getInstance().buy(symbol, price);
+			if (purchased) {
+				Logger.getInstance().log("Purchased stock!");
+			}
+			else {
+				Logger.getInstance().log("Couldn't buy the stock at that price.");
+			}
 		} catch (Exception e) {
 			Logger.getInstance().log("There was an error while attempting to buy the stock: " + e.getMessage());
-		}
-		if (purchased) {
-			Logger.getInstance().log("Purchased stock!");
-		}
-		else {
-			Logger.getInstance().log("Couldn't buy the stock at that price.");
 		}
 	}
 }

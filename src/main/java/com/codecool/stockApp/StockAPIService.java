@@ -7,18 +7,18 @@ import java.io.IOException;
 /**
  * Stock price service that gets prices from Yahoo.
  **/
-public class IexStockService {
+public class StockAPIService {
 
-	private static final String iexPath = "https://api.iextrading.com/1.0/stock/%s/quote";
+	private static final String apiPath = "https://financialmodelingprep.com/api/v3/stock/real-time-price/%s";
 	
 	/** Get stock price from iex and return as a double
      *  @param symbol Stock symbol, for example "aapl"
      **/
 	public double getPrice(String symbol) throws IOException {
-        String url = String.format(iexPath, symbol);
+        String url = String.format(apiPath, symbol);
         String result = RemoteURLReader.readFromUrl(url);
         JSONObject json = new JSONObject(result);
-        String price = json.get("latestPrice").toString();
+        String price = json.get("price").toString();
         return Double.parseDouble(price);
 	}
 	

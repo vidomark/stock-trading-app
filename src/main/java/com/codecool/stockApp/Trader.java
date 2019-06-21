@@ -16,10 +16,10 @@ public class Trader {
         return instance;
     }
 
-	private IexStockService stockService;
+	private StockAPIService stockService;
 
 	public Trader() {
-        this.stockService = new IexStockService();
+        this.stockService = new StockAPIService();
     }
 
 	/** Checks the price of a stock, and buys it if the price is not greater than the bid amount.
