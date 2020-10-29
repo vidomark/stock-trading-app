@@ -18,7 +18,7 @@ public class Trader {
 
 	private StockAPIService stockService;
 
-	public Trader() {
+	private Trader() {
         this.stockService = new StockAPIService();
     }
 

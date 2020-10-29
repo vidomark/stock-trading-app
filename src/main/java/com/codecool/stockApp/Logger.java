@@ -11,6 +11,9 @@ public class Logger {
 
     private static Logger instance;
 
+    private Logger() {
+    }
+
     public static Logger getInstance() {
         if (instance == null) {
             instance = new Logger();
@@ -24,7 +27,7 @@ public class Logger {
         String msg = dateFormat.format(date) + " " + message;
         System.out.println(msg);
         try {
-            FileWriter fileWriter = new FileWriter("log.txt",true);
+            FileWriter fileWriter = new FileWriter("log.txt", true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.println(msg);
             printWriter.close();
