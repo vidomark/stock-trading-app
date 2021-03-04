@@ -21,7 +21,7 @@ public class Trader {
         boolean result;
 		if (price <= bid) {
 			result = true;
-			stockService.buy(symbol);
+			stockService.buy();
 			Logger.getInstance().log("Purchased " + symbol + " stock at $" + bid + ", since its higher that the current price ($" + price + ")");
 		}
 		else {
