@@ -26,7 +26,9 @@ public class TradingApp {
 		}
 
 		try {
-			boolean purchased = Trader.getInstance().buy(symbol, price);
+			Trader trader = new Trader();
+			boolean purchased = trader.buy(symbol, price);
+
 			if (purchased) {
 				Logger.getInstance().log("Purchased stock!");
 			}

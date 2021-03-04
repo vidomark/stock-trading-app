@@ -7,18 +7,9 @@ import java.io.IOException;
  **/
 public class Trader {
 
-	private static Trader instance;
-
-	public static Trader getInstance() {
-	    if (instance == null) {
-	        instance = new Trader();
-        }
-        return instance;
-    }
-
 	private StockAPIService stockService;
 
-	private Trader() {
+	protected Trader() {
         this.stockService = new StockAPIService();
     }
 
