@@ -8,7 +8,7 @@ import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 
-public class RemoteURLReader {
+class RemoteURLReader {
 
     public String readFromUrl(String endpoint) throws IOException {
         URL url = new URL(endpoint);

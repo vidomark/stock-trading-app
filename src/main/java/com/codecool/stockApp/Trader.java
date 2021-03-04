@@ -5,11 +5,11 @@ import java.io.IOException;
 /**
  * Business logic for stock trading
  **/
-public class Trader {
+class Trader {
 
 	private StockAPIService stockService;
-
 	private Logger logger;
+
 	protected Trader(Logger logger) {
         this.stockService = new StockAPIService();
         this.logger = logger;

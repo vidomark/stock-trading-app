@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Stock price service that gets prices from Yahoo.
  **/
-public class StockAPIService {
+class StockAPIService {
 
 	private final String API_PATH = "https://run.mocky.io/v3/9e14e086-84c2-4f98-9e36-54928830c980?stock=%s";
 	private final RemoteURLReader remoteURLReader;
