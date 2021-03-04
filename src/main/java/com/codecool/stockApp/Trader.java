@@ -9,8 +9,10 @@ public class Trader {
 
 	private StockAPIService stockService;
 
-	protected Trader() {
+	private Logger logger;
+	protected Trader(Logger logger) {
         this.stockService = new StockAPIService();
+        this.logger = logger;
     }
 
 	/** Checks the price of a stock, and buys it if the price is not greater than the bid amount.
@@ -22,10 +24,10 @@ public class Trader {
 		if (price <= bid) {
 			result = true;
 			stockService.buy();
-			Logger.getInstance().log("Purchased " + symbol + " stock at $" + bid + ", since its higher that the current price ($" + price + ")");
+			logger.log("Purchased " + symbol + " stock at $" + bid + ", since its higher that the current price ($" + price + ")");
 		}
 		else {
-            Logger.getInstance().log("Bid for " + symbol + " was $" + bid + " but the stock price is $" + price + ", no purchase was made.");
+			logger.log("Bid for " + symbol + " was $" + bid + " but the stock price is $" + price + ", no purchase was made.");
 			result = false;
 		}
 		return result;
